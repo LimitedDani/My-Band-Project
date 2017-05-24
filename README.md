@@ -10,7 +10,7 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 # My-Band-Project
 | Milestone                     |	Status |                      Link                    | Type Document of cloudservice               |
 | ------------------------------| ------ | -------------------------------------------- | --------------------------------------------|
-| readme	                      | DONE   |         [README.md](../README.md)            |  *MarkDown op github                   |
+| readme	                      | DONE   |         [README.md](./README.md)            |  *MarkDown op github                   |
 | b1-k1-w1 debriefing	          | DONE   |   [Debriefing.pdf](../docs/Debriefing.pdf)   |  Comment enabled                       |
 | b1-k1-w1 bepaling uitgangspunt|	DONE   |   [Debriefing.pdf](../docs/Debriefing.pdf)   |  *Markdown                             |
 | b1-k1-w2 Urenschatting	      | DONE	 |[UrenSchatting.pdf](../docs/UrenSchatting.pdf)|  *Markdown                             |
