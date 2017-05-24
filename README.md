@@ -8,15 +8,15 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 
 
 # My-Band-Project
-| Milestone                     |	Status |	Type Document of cloudservice         |
-| ------------------------------| ------ | ---------------------------------------|
-| readme	                      | DONE   |  *MarkDown op github                   |
-| b1-k1-w1 debriefing	          | DONE   |  Comment enabled                       |
-| b1-k1-w1 bepaling uitgangspunt|	DONE   |  *Markdown                             |
-| b1-k1-w2 Urenschatting	      | DONE	 |  *Markdown                             |
-| b1-k1-w2 Planning	            | TODO	 |  *Markdown                             |
-| b1-k1-w2 Plan van aanpak	    | TODO   |	Rich Text Format                      |
-| b1-k1-w2 Sfeer impressie	    | TODO   |	PNG Image op deviantArt               |
-| b1-k1-w2 Functioneel ontwerp	| DONE   |	MarkDown op github                    |
-| b1-k1-w2 FLowChart	          | DONE   |	SVG exported by Draw.io               |
-| b1-k1-w2 prototype	          | TODO   |	axShare	Axshare link                  |
+| Milestone                     |	Status |        Link        | Type Document of cloudservice               |
+| ------------------------------| ------ | ------------------ | --------------------------------------------|
+| readme	                      | DONE   | [here](../blob/master/LICENSE)|  *MarkDown op github                   |
+| b1-k1-w1 debriefing	          | DONE   |                    |  Comment enabled                       |
+| b1-k1-w1 bepaling uitgangspunt|	DONE   |                    |  *Markdown                             |
+| b1-k1-w2 Urenschatting	      | DONE	 |                    |  *Markdown                             |
+| b1-k1-w2 Planning	            | TODO	 |                    |  *Markdown                             |
+| b1-k1-w2 Plan van aanpak	    | TODO   |                    |	Rich Text Format                      |
+| b1-k1-w2 Sfeer impressie	    | TODO   |                    |	PNG Image op deviantArt               |
+| b1-k1-w2 Functioneel ontwerp	| DONE   |                    |	MarkDown op github                    |
+| b1-k1-w2 FLowChart	          | DONE   |                    |	SVG exported by Draw.io               |
+| b1-k1-w2 prototype	          | TODO   |                    |	axShare	Axshare link                  |
