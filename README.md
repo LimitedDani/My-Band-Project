@@ -18,5 +18,5 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | b1-k1-w2 Plan van aanpak	    | TODO   |                                                       |	Rich Text Format                  |
 | b1-k1-w2 Sfeer impressie	    | DONE   |  [moodboard.png](./docs/moodboard.png)                |	PNG Image op deviantArt           |
 | b1-k1-w2 Functioneel ontwerp	| DONE   |[Functioneelontwerp.pdf](./docs/Functioneelontwerp.pdf)|	MarkDown op github                |
-| b1-k1-w2 FLowChart	          | DONE   |  [Flowchart.svg](./docs/Flowchart.svg)                |	SVG exported by Draw.io           |
+| b1-k1-w2 FLowChart	          | DONE   |  [flowchart.svg](./docs/flowchart.svg)                |	SVG exported by Draw.io           |
 | b1-k1-w2 prototype	          | TODO   |                                                       |	axShare	Axshare link              |
