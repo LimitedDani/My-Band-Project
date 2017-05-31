@@ -50,7 +50,27 @@
         <?php }?>
         <span class="nav-item is-tab">
             <div class="field">
-                <input class="input" type="text" placeholder="Search" onkeydown="if (event.keyCode == 13) { window.alert('search'); }">
+                                <script>
+                      $( function() {
+                          var availableTags = [
+                              "Rico",
+                              "Mark",
+                              "Dani",
+                              "Justin",
+                              "Trein",
+                              "Zveau",
+                              "Simon"
+                          ];
+                          $( "#search" ).autocomplete({
+                              source: availableTags,
+                              messages: {
+                                  noResults: '',
+                                  results: function() {}
+                              }
+                          });
+                      } );
+                </script>
+                <input id="search" class="input" type="text" placeholder="Search" onkeydown="if (event.keyCode == 13) { window.alert('search'); }">
             </div>
         </span>
     </div>
