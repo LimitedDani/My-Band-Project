@@ -1,0 +1,184 @@
+@media (min-width: 0px) and (max-width: 1000px) {
+    html, body {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    form {
+        background: white;
+        width: 100%;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+        font-family: lato;
+        position: relative;
+        color: #333;
+        border-radius: 10px;
+    }
+    form header {
+        background: #6e9cff;
+        padding: 30px 20px;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 600;
+        border-radius: 10px 10px 0 0;
+    }
+    form label {
+        margin-left: 20px;
+        display: inline-block;
+        margin-top: 30px;
+        margin-bottom: 5px;
+        position: relative;
+    }
+    form label span {
+        color: #6e9cff;
+        font-size: 2em;
+        position: absolute;
+        left: 2.3em;
+        top: -10px;
+    }
+    form input {
+        display: block;
+        width: 93%;
+        margin-left: 20px;
+        padding: 5px 20px;
+        font-size: 1em;
+        border-radius: 3px;
+        outline: none;
+        border: 1px solid #ccc;
+    }
+    form .help {
+        margin-left: 20px;
+        font-size: 0.8em;
+        color: #777;
+    }
+    form button {
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-family: inherit;
+        color: white;
+        background: #6e9cff;
+        outline: none;
+        border: none;
+        padding: 5px 15px;
+        font-size: 1.3em;
+        font-weight: 400;
+        border-radius: 3px;
+        box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
+        cursor: pointer;
+    }
+    form button:hover {
+        background: #6e9cff;
+    }
+    body {
+        transition: background 0.5s linear;
+        background-position: center;
+        background-size: 100% 100%;
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        background-attachment: fixed !important;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+    }
+}
+
+
+@media (min-width: 1000px) {
+    html, body {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    form {
+        background: rgba(255, 255, 255, 0.16);
+        width: 30%;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+        font-family: lato;
+        position: relative;
+        color: white;
+        border-radius: 0px;
+        float: right;
+        margin-top: 10%;
+        margin-right: 30%;
+    }
+    form header {
+        background: rgba(255, 255, 255, 0.16);
+        padding: 30px 20px;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 600;
+        border-radius: 10px 10px 0 0;
+    }
+    form label {
+        margin-left: 20px;
+        display: inline-block;
+        margin-top: 30px;
+        margin-bottom: 5px;
+        position: relative;
+    }
+    form label span {
+        color: #6e9cff;
+        font-size: 2em;
+        position: absolute;
+        left: 2.3em;
+        top: -10px;
+    }
+    form input {
+        display: block;
+        width: 90%;
+        margin-left: 20px;
+        padding: 5px 20px;
+        font-size: 1em;
+        border-radius: 3px;
+        outline: none;
+        border: 1px solid #ccc;
+    }
+    form .help {
+        margin-left: 20px;
+        font-size: 0.8em;
+        color: #777;
+    }
+    form button {
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-family: inherit;
+        color: white;
+        background: #6e9cff;
+        outline: none;
+        border: none;
+        padding: 5px 15px;
+        font-size: 1.3em;
+        font-weight: 400;
+        border-radius: 3px;
+        box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
+        cursor: pointer;
+    }
+    form button:hover {
+        background: #6e9cff;
+    }
+    body {
+        transition: background 0.5s linear;
+        background-position: center;
+        background-size: 100% 100%;
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        background-attachment: fixed !important;
+        position: relative;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+    }
+}

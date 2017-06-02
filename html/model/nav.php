@@ -7,6 +7,7 @@
  */
 
 ?>
+<body>
 <nav class="nav">
     <div class="nav-left">
         <a class="nav-item is-brand" href="#">
@@ -37,17 +38,6 @@
     <input type="checkbox" id="nav-toggle-state" />
 
     <div class="nav-right nav-menu">
-        <?php if($isloggedin) {?>
-            <a class="nav-item is-tab">
-                <figure class="image is-16x16" style="margin-right: 8px;">
-                    <img src="http://bulma.io/images/jgthms.png">
-                </figure>
-                Profile
-            </a>
-            <a class="nav-item is-tab">Log out</a>
-        <?php } else { ?>
-            <a class="nav-item is-tab">Login</a>
-        <?php }?>
         <span class="nav-item is-tab">
             <div class="field">
                                 <script>

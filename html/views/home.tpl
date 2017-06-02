@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-content">
                         <p class="title">
-                            <h1 class="title">Newest questions</h1>
+                            <h1 class="title">Newest articles</h1>
                         </p>
                         {foreach from=$result_list item=about}
                             <h1>{$about.text}</h1>
@@ -40,3 +40,4 @@
         </div>
     </div>
 </div>
+</body>
