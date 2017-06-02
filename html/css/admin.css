@@ -71,10 +71,6 @@
         display: block;
         margin-top: 49px; } }
 
-/**
- *  Panel Highlight
- *
- */
 .panel-highlight {
     display: none; }
 
@@ -100,10 +96,6 @@
         bottom: 20px;
         position: absolute; } }
 
-/**
- *  Panel Item
- *
- */
 .panel-title {
     height: 45px;
     display: block;

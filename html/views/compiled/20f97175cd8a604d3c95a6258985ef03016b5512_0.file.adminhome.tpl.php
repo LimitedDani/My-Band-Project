@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-06-01 19:37:20
+/* Smarty version 3.1.30, created on 2017-06-02 08:33:53
   from "D:\Github Projects\My-Band-Project\html\views\adminhome.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59305ee0ebfea5_65621474',
+  'unifunc' => 'content_593114e10ecb68_06378273',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '20f97175cd8a604d3c95a6258985ef03016b5512' => 
     array (
       0 => 'D:\\Github Projects\\My-Band-Project\\html\\views\\adminhome.tpl',
-      1 => 1496342240,
+      1 => 1496388833,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59305ee0ebfea5_65621474 (Smarty_Internal_Template $_smarty_tpl) {
+function content_593114e10ecb68_06378273 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <link rel="stylesheet" href="css/admin.css">
 <header>
@@ -56,7 +56,7 @@ function content_59305ee0ebfea5_65621474 (Smarty_Internal_Template $_smarty_tpl)
                 </p>
             </li>
             <li class="panel-item">
-                <a class="panel-title">
+                <a class="panel-title" href="/admin&p=home">
                     <span class="icon is-small"><i class="fa fa-dashboard"></i></span> Dashboard
                 </a>
             </li>
@@ -78,7 +78,7 @@ function content_59305ee0ebfea5_65621474 (Smarty_Internal_Template $_smarty_tpl)
                 </ul>
             </li>
             <li class="panel-item">
-                <a class="panel-title">
+                <a class="panel-title" href="/admin&p=users">
                     <span class="icon is-small"><i class="fa fa-user"></i></span> Users
                 </a>
             </li>
@@ -86,6 +86,8 @@ function content_59305ee0ebfea5_65621474 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 </header>
 <main id="wrapper">
+    <?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+
 </main>
 <?php echo '<script'; ?>
  src="js/admin.js"><?php echo '</script'; ?>

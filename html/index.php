@@ -19,7 +19,23 @@ switch ($action) {
         if(isset($_SESSION['user'])) {
             require_once 'model/head.php';
             $session = array('id' => $_SESSION['user'], 'uuid' => $_SESSION['UUID'], 'name' => user::getName($_SESSION['UUID'], $mysqli));
+            $content;
+            if(isset($_GET['p'])) {
+                if(!empty($_GET['p'])) {
+                    switch($_GET['p']) {
+                        case 'users':
+                            $content = admin::users($mysqli);
+                            break;
+                        case 'home':
+                            $content = admin::home($mysqli);
+                        default:
+                            $content = 'prank';
+                            break;
+                    }
+                }
+            }
             $templateParser->assign('session', $session);
+            $templateParser->assign('content', $content);
             $templateParser->display('adminhome.tpl');
             break;
         } else {

@@ -29,7 +29,7 @@
                 </p>
             </li>
             <li class="panel-item">
-                <a class="panel-title">
+                <a class="panel-title" href="/admin&p=home">
                     <span class="icon is-small"><i class="fa fa-dashboard"></i></span> Dashboard
                 </a>
             </li>
@@ -51,7 +51,7 @@
                 </ul>
             </li>
             <li class="panel-item">
-                <a class="panel-title">
+                <a class="panel-title" href="/admin&p=users">
                     <span class="icon is-small"><i class="fa fa-user"></i></span> Users
                 </a>
             </li>
@@ -59,6 +59,7 @@
     </div>
 </header>
 <main id="wrapper">
+    {$content}
 </main>
 <script src="js/admin.js"></script>
 </body>
