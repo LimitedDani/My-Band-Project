@@ -7,7 +7,10 @@
  */
 ob_start();
 session_start();
-
+require 'connectdb.php';
+require 'includes/config.php';
+require 'libs/Smarty.class.php';
+require 'includes/CMS_API.php';
 foreach($_REQUEST as $key => $value) {
     $_REQUEST[$key] = your_filter($value, $mysqli);
 }
@@ -22,10 +25,6 @@ $loggedin = false;
 if (isset($_SESSION['user'])) {
     $loggedin = true;
 }
-require 'connectdb.php';
-require 'includes/config.php';
-require 'libs/Smarty.class.php';
-require 'includes/CMS_API.php';
 //set up template engine
 $templateParser = new Smarty();
 $templateParser->template_dir = "views";

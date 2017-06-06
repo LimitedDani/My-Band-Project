@@ -17,6 +17,14 @@ switch ($action) {
         break;
     case 'admin':
         if(isset($_SESSION['user'])) {
+            if(!permissions::hasPermission(admin::getRoleID($_SESSION['UUID'], $mysqli), permissions::ReachDashboard, $mysqli)) {
+                session_unset();
+                session_destroy();
+                session_write_close();
+                header("Location: admin");
+                exit;
+            }
+            require_once 'model/admin.php';
             require_once 'model/head.php';
             $session = array('id' => $_SESSION['user'], 'uuid' => $_SESSION['UUID'], 'name' => user::getName($_SESSION['UUID'], $mysqli));
             $content;
@@ -28,14 +36,23 @@ switch ($action) {
                             break;
                         case 'home':
                             $content = admin::home($mysqli);
+                            break;
+                        case 'addpost':
+                            $content = admin::addPost($mysqli);
+                            break;
                         default:
-                            $content = 'prank';
+                            $content = admin::home($mysqli);
                             break;
                     }
                 }
             }
+            if(empty($content)) {
+                $content = admin::home($mysqli);
+            }
+            $header = admin::getHeader($_GET['p']);
             $templateParser->assign('session', $session);
             $templateParser->assign('content', $content);
+            $templateParser->assign('header', $header);
             $templateParser->display('adminhome.tpl');
             break;
         } else {
@@ -53,8 +70,7 @@ switch ($action) {
         session_unset();
         session_destroy();
         session_write_close();
-        header("Location index.php?page=home");
-        exit;
+        header("Location: admin");
         break;
     default:
         require_once 'model/head.php';
@@ -64,3 +80,4 @@ switch ($action) {
         $templateParser->display('home.tpl');
         break;
 }
+require_once 'model/foot.php';

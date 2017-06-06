@@ -7,19 +7,19 @@
             </div>
             <span class="nav-toggle">
 
-                    <span></span>
+                <span></span>
                 <span></span>
                 <span></span>
                 </span>
             <ul class="nav-right nav-menu is-active">
-                <li class="nav-item dropdown-toggle button-notify logout">
-                    <a href="#" class=""><span class="lt" name="{$session.name}">{$session.name}</span>
+                <li class="nav-item dropdown-toggle button-notify">
+                    <a href="logout" class=""><span class="lt">Logout</span>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div id="sidebar" class="panel sidebar" role="navigation">
+    <div id="sidebar" class="panel sidebar animated fadeInLeft" role="navigation">
         <ul>
             <li class="panel-item panel-highlight">
                 <p class="panel-highlight-text">
@@ -33,6 +33,11 @@
                     <span class="icon is-small"><i class="fa fa-dashboard"></i></span> Dashboard
                 </a>
             </li>
+            <li class="panel-item">
+                <a class="panel-title" href="/admin&p=users">
+                    <span class="icon is-small"><i class="fa fa-user"></i></span> Users
+                </a>
+            </li>
             <li class="panel-item has-sub-panel">
                 <a class="panel-title">
                     <span class="icon is-small"><i class="fa fa-thumb-tack"></i></span> Posts
@@ -43,22 +48,18 @@
                         <a class="panel-title">All Posts</a>
                     </li>
                     <li class="panel-item">
-                        <a class="panel-title">Add New</a>
+                        <a class="panel-title" href="/admin&p=addpost">New Post</a>
                     </li>
                     <li class="panel-item">
                         <a class="panel-title">Categories</a>
                     </li>
                 </ul>
             </li>
-            <li class="panel-item">
-                <a class="panel-title" href="/admin&p=users">
-                    <span class="icon is-small"><i class="fa fa-user"></i></span> Users
-                </a>
-            </li>
         </ul>
     </div>
 </header>
 <main id="wrapper">
+    {$header}
     {$content}
 </main>
 <script src="js/admin.js"></script>
