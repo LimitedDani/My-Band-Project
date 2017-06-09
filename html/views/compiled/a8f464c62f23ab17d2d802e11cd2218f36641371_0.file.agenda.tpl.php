@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-06-08 10:32:28
+/* Smarty version 3.1.30, created on 2017-06-09 09:12:25
   from "D:\Github Projects\My-Band-Project\html\views\agenda.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_593919acd67380_38038323',
+  'unifunc' => 'content_593a5869584599_43268797',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a8f464c62f23ab17d2d802e11cd2218f36641371' => 
     array (
       0 => 'D:\\Github Projects\\My-Band-Project\\html\\views\\agenda.tpl',
-      1 => 1496914348,
+      1 => 1496995941,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_593919acd67380_38038323 (Smarty_Internal_Template $_smarty_tpl) {
+function content_593a5869584599_43268797 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <section class="hero is-primary">
     <div class="hero-body">
@@ -38,6 +38,7 @@ function content_593919acd67380_38038323 (Smarty_Internal_Template $_smarty_tpl)
     <div class="columns">
         <div class="column">
             <div class="column">
+                <?php if (!$_smarty_tpl->tpl_vars['result_list']->value) {?><h1 class="title">No events found</h1><?php }?>
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['result_list']->value, 'agenda');
 if ($_from !== null) {

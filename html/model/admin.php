@@ -38,7 +38,7 @@ if(isset($_REQUEST['removepost'])) {
 if(isset($_REQUEST['addpost'])) {
     $title = $_REQUEST['title'];
     $text = $_REQUEST['text'];
-    $sql = "INSERT INTO posts (title, article, user, date) VALUES ('".$title."', '".$text."', '".$_SESSION['UUID']."', CURDATE())";
+    $sql = "INSERT INTO ".$GLOBALS['table_prefix']."posts (title, article, user, date) VALUES ('".$title."', '".$text."', '".$_SESSION['UUID']."', CURDATE())";
     $result = mysqli_query($mysqli, $sql);
     $redirect = true;
 }
@@ -52,13 +52,13 @@ if(isset($_REQUEST['edituser'])) {
     $hash = hash('sha256', $password);
     $hashrepeat = hash('sha256', $repeatpassword);
     if (empty($password) && empty($repeatpassword)) {
-        $sql = "UPDATE users SET name='$name', email='$email', role='$role' WHERE ID='$id'";
+        $sql = "UPDATE ".$GLOBALS['table_prefix']."users SET name='$name', email='$email', role='$role' WHERE ID='$id'";
         $result = mysqli_query($mysqli, $sql);
     } else {
         if (strcmp($hash, $hashrepeat) != 0) {
 
         } else {
-            $sql = "UPDATE users SET name='$name', email='$email', role='$role', password='$hash' WHERE ID='$id'";
+            $sql = "UPDATE ".$GLOBALS['table_prefix']."users SET name='$name', email='$email', role='$role', password='$hash' WHERE ID='$id'";
             $result = mysqli_query($mysqli, $sql);
         }
     }
@@ -74,7 +74,7 @@ if(isset($_REQUEST['editevent'])) {
     $end_date = $_REQUEST['end-date'];
     $end_time = $_REQUEST['end-time'];
 
-    $sql = "UPDATE agenda SET title='$title', description='$description', start_d='$start_date', start_t='$start_time', end_d='$end_date', end_t='$end_time' WHERE ID='$id'";
+    $sql = "UPDATE ".$GLOBALS['table_prefix']."agenda SET title='$title', description='$description', start_d='$start_date', start_t='$start_time', end_d='$end_date', end_t='$end_time' WHERE ID='$id'";
     $result = mysqli_query($mysqli, $sql);
     $redirect = true;
 }

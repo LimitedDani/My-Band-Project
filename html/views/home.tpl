@@ -19,6 +19,7 @@
                         <p class="title">
                             <h1 class="title">Newest articles</h1>
                         </p>
+                        {if !$result_list}<h1 class="subtitle">No articles found</h1>{/if}
                         {foreach from=$result_list item=articles}
                             <a href="article&id={$articles.ID}">
                                 <hr />

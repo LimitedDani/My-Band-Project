@@ -10,7 +10,7 @@ class user {
         if(!empty($email) && !empty($password)) {
             $hash = hash('sha256', $password);
 
-            $sql="SELECT * FROM users WHERE email='$email' AND password='$hash'";
+            $sql="SELECT * FROM ".$GLOBALS['table_prefix']."users WHERE email='$email' AND password='$hash'";
             $result = mysqli_query($mysqli, $sql);
             $count = mysqli_num_rows($result);
             $row = mysqli_fetch_assoc($result);
@@ -28,21 +28,21 @@ class user {
         }
     }
     static function getName($UUID, $mysqli) {
-        $sql="SELECT name FROM users WHERE UUID='$UUID'";
+        $sql="SELECT name FROM ".$GLOBALS['table_prefix']."users WHERE UUID='$UUID'";
         $result = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($result);
         $row = mysqli_fetch_assoc($result);
         return $row['name'];
     }
     static function getRoleID($uuid, $mysqli) {
-        $sql="SELECT role FROM users WHERE UUID='$uuid'";
+        $sql="SELECT role FROM ".$GLOBALS['table_prefix']."users WHERE UUID='$uuid'";
         $result = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($result);
         $row = mysqli_fetch_assoc($result);
         return $row['role'];
     }
     static function getAll($mysqli) {
-        $sql="SELECT ID,name,email,UUID,role FROM users";
+        $sql="SELECT ID,name,email,UUID,role FROM ".$GLOBALS['table_prefix']."users";
         $result = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($result);
         $content = '
@@ -164,29 +164,29 @@ class user {
         return $content;
     }
     static function removeUser($uuid, $mysqli) {
-        $sql = "DELETE FROM users WHERE UUID='$uuid'";
+        $sql = "DELETE FROM ".$GLOBALS['table_prefix']."users WHERE UUID='$uuid'";
         $result = mysqli_query($mysqli, $sql);
     }
     static function addUser($name, $email, $password, $role, $mysqli) {
-        $sql = "INSERT INTO users (UUID, name, email, password, role) VALUES (UUID(), '$name', '$email', '$password', '$role')";
+        $sql = "INSERT INTO ".$GLOBALS['table_prefix']."users (UUID, name, email, password, role) VALUES (UUID(), '$name', '$email', '$password', '$role')";
         $result = mysqli_query($mysqli, $sql);
     }
 }
 class admin {
     static function addEvent($title, $description, $start_date, $start_time, $end_date, $end_time, $mysqli) {
-        $sql = "INSERT INTO agenda (title, description, start_d, start_t, end_d, end_t, author) VALUES ('$title', '$description', '$start_date', '$start_time', '$end_date', '$end_time', '".$_SESSION['UUID']."')";
+        $sql = "INSERT INTO ".$GLOBALS['table_prefix']."agenda (title, description, start_d, start_t, end_d, end_t, author) VALUES ('$title', '$description', '$start_date', '$start_time', '$end_date', '$end_time', '".$_SESSION['UUID']."')";
         $result = mysqli_query($mysqli, $sql);
         return mysqli_error($mysqli);
     }
     static function getRole($role_id, $mysqli) {
-        $sql="SELECT role_name FROM roles WHERE role_id='$role_id'";
+        $sql="SELECT role_name FROM ".$GLOBALS['table_prefix']."roles WHERE role_id='$role_id'";
         $result = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($result);
         $row = mysqli_fetch_assoc($result);
         return $row['role_name'];
     }
     static function getPosts($mysqli) {
-        $sql="SELECT ID,title,user,date FROM posts";
+        $sql="SELECT ID,title,user,date FROM ".$GLOBALS['table_prefix']."posts";
         $result = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($result);
         $content = '
@@ -267,11 +267,11 @@ class admin {
         return 'nog niks';
     }
     static function removePost($id, $mysqli) {
-        $sql = "DELETE FROM posts WHERE ID='$id'";
+        $sql = "DELETE FROM ".$GLOBALS['table_prefix']."posts WHERE ID='$id'";
         $result = mysqli_query($mysqli, $sql);
     }
     static function removeEvent($id, $mysqli) {
-        $sql = "DELETE FROM agenda WHERE ID='$id'";
+        $sql = "DELETE FROM ".$GLOBALS['table_prefix']."agenda WHERE ID='$id'";
         $result = mysqli_query($mysqli, $sql);
     }
     static function getHeader($page)
@@ -499,7 +499,7 @@ class admin {
         }
     }
     static function getCalender($mysqli) {
-        $sql="SELECT * FROM agenda";
+        $sql="SELECT * FROM ".$GLOBALS['table_prefix']."agenda";
         $result = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($result);
         $content = '

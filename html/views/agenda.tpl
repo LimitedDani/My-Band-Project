@@ -14,6 +14,7 @@
     <div class="columns">
         <div class="column">
             <div class="column">
+                {if !$result_list}<h1 class="title">No events found</h1>{/if}
                 {foreach from=$result_list item=agenda}
                     <section class="hero {$agenda.color}">
                         <div class="hero-body">

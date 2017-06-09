@@ -7,7 +7,7 @@
  */
 $result_list = array();
 //add model for articles
-$sql = "SELECT * FROM posts";
+$sql = "SELECT * FROM ".$GLOBALS['table_prefix']."posts";
 $result = $mysqli->query($sql);
 while($item = $result->fetch_assoc()) {
     $result_list[] = $item;
