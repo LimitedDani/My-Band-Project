@@ -62,5 +62,3 @@
 | 7de uur |      |      |        |     |       |     |
 | 8de uur |      |      |        |     |       |     |
 | Avond   |      |      |        |     |       | 4   |
-
-Peer Review.
