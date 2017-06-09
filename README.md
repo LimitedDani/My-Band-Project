@@ -27,7 +27,7 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
 | b1-k1-w3 Technisch Ontwerp |  TODO |  [Technisch Ontwerp] |
-| b1-k1-w3 ERD               |  DONE |  [erd.svg](./docs/erd.svg)  |
+| b1-k1-w3 ERD               |  DONE |  [ERD.svg](./docs/ERD.svg)  |
 | b1-k1-w4 Ontwikkelomgeving |  TODO |  [Ontwikkelomgeving]|
 | Link naar de live omgeving |  TODO |	[Link] |
 | Implementatieplan          |  TODO |  [Implementatieplan] |
