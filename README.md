@@ -17,7 +17,7 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | b1-k1-w1 bepaling uitgangspunt|	DONE   |   [Debriefing.pdf](./docs/Debriefing.pdf)             |  *Markdown                         |
 | b1-k1-w2 Urenschatting	      | DONE	 |[UrenSchatting.pdf](./docs/UrenSchatting.pdf)          |  *Markdown                         |
 | b1-k1-w2 Planning	            | DONE	 |     [planning.md](./docs/planning.md)              |  *Markdown                         |
-| b1-k1-w2 Plan van aanpak	    | TODO   |                                                       |	Rich Text Format                  |
+| b1-k1-w2 Plan van aanpak	    | DONE   |  [PlanvanAanpak.pdf](./docs/PlanvanAanpak.pdf)     |	Rich Text Format                  |
 | b1-k1-w2 Sfeer impressie	    | DONE   |  [moodboard.png](./docs/moodboard.png)                |	PNG Image op deviantArt           |
 | b1-k1-w2 Functioneel ontwerp	| DONE   |[Functioneelontwerp.pdf](./docs/Functioneelontwerp.pdf)|	MarkDown op github                |
 | b1-k1-w2 FLowChart	          | DONE   |  [Flowchart.svg](./docs/Flowchart.svg)                |	SVG exported by Draw.io           |
