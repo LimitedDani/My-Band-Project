@@ -38,6 +38,11 @@
                     <span class="icon is-small"><i class="fa fa-user"></i></span> Users
                 </a>
             </li>
+            <li class="panel-item">
+                <a class="panel-title" href="/admin&p=agenda">
+                    <span class="icon is-small"><i class="fa fa-calendar"></i></span> Agenda
+                </a>
+            </li>
             <li class="panel-item has-sub-panel">
                 <a class="panel-title">
                     <span class="icon is-small"><i class="fa fa-thumb-tack"></i></span> Posts
@@ -45,7 +50,7 @@
                 </a>
                 <ul class="sub-panel">
                     <li class="panel-item">
-                        <a class="panel-title">All Posts</a>
+                        <a class="panel-title" href="/admin&p=manageposts">All Post</a>
                     </li>
                     <li class="panel-item">
                         <a class="panel-title" href="/admin&p=addpost">New Post</a>

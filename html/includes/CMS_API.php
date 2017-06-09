@@ -34,8 +34,6 @@ class user {
         $row = mysqli_fetch_assoc($result);
         return $row['name'];
     }
-}
-class admin {
     static function getRoleID($uuid, $mysqli) {
         $sql="SELECT role FROM users WHERE UUID='$uuid'";
         $result = mysqli_query($mysqli, $sql);
@@ -43,85 +41,7 @@ class admin {
         $row = mysqli_fetch_assoc($result);
         return $row['role'];
     }
-    static function removeUser($uuid, $mysqli) {
-        $sql = "DELETE FROM users WHERE UUID='$uuid'";
-        $result = mysqli_query($mysqli, $sql);
-    }
-    static function getRole($role_id, $mysqli) {
-        $sql="SELECT role_name FROM roles WHERE role_id='$role_id'";
-        $result = mysqli_query($mysqli, $sql);
-        $count = mysqli_num_rows($result);
-        $row = mysqli_fetch_assoc($result);
-        return $row['role_name'];
-    }
-    static function addUser($name, $email, $password, $role, $mysqli) {
-        $sql = "INSERT INTO users (UUID, name, email, password, role) VALUES (UUID(), '$name', '$email', '$password', '$role')";
-        $result = mysqli_query($mysqli, $sql);
-    }
-    static function posts($mysqli) {
-        $sql="SELECT ID,title,user,date FROM posts";
-        $result = mysqli_query($mysqli, $sql);
-        $count = mysqli_num_rows($result);
-        $content = '
-        <table class="table">
-          <thead class="animated fadeInUpBig">
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tfoot class="animated fadeInUpBig">
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Options</th>
-            </tr>
-          </tfoot>
-          <tbody>';
-        while($row = mysqli_fetch_assoc($result)) {
-            $content .= '
-                <tr class="animated fadeInUpBig">
-                    <th >'.$row["ID"].'</th >
-                    <td >'.$row["name"].'</td >
-                    <td >'.$row["email"].'</td >
-                    <td >********</td >
-                    <td ><div class="block" >
-                      <a class="button is-info" >Edit</a >
-                      ';
-            if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
-                $content .= '<a class="button is-danger" href="admin&p=users&removeuser=' . $row["UUID"] . '">Remove</a >';
-            }
-            $content .= '</div >
-                    </td >
-                </tr >';
-        }
-        $content .= '</tbody>
-            </table>        <script src="js/modal.js"></script>
-            ';
-        return $content;
-    }
-    static function addPost($mysqli) {
-        $content = '
-        <script src="../libs/ckeditor/ckeditor.js"></script>
-        <form>
-            <textarea name="addpost" id="editor1" rows="10" cols="80">
-            </textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace("addpost");
-            </script>
-        </form>
-        
-        ';
-        return $content;
-    }
-    static function users($mysqli) {
+    static function getAll($mysqli) {
         $sql="SELECT ID,name,email,UUID,role FROM users";
         $result = mysqli_query($mysqli, $sql);
         $count = mysqli_num_rows($result);
@@ -148,8 +68,8 @@ class admin {
             </tr>
           </tfoot>
           <tbody>';
-            while($row = mysqli_fetch_assoc($result)) {
-                $content .= '
+        while($row = mysqli_fetch_assoc($result)) {
+            $content .= '
                 <tr class="animated fadeInUpBig">
                     <th >'.$row["ID"].'</th >
                     <td >'.$row["name"].'</td >
@@ -159,13 +79,13 @@ class admin {
                     <td ><div class="block" >
                       <a class="button is-info modal-button" data-target="#edituser'.$row["UUID"].'">Edit</a >
                       ';
-                        if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
-                            $content .= '<a class="button is-danger" href="admin&p=users&removeuser=' . $row["UUID"] . '">Remove</a >';
-                        }
-                $content .='
+            if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
+                $content .= '<a class="button is-danger" href="admin&p=users&removeuser=' . $row["UUID"] . '">Remove</a >';
+            }
+            $content .='
                 </td >
             </tr >';
-                $content.= '
+            $content.= '
                     <div id="edituser'.$row["UUID"].'" class="modal">
                         <div class="modal-background">
                     
@@ -237,18 +157,208 @@ class admin {
                                                 <button class="modal-close"></button>
 
                     </div >';
-            }
-            $content .= '</tbody>
+        }
+        $content .= '</tbody>
             </table>        <script src="js/modal.js"></script>
             ';
+        return $content;
+    }
+    static function removeUser($uuid, $mysqli) {
+        $sql = "DELETE FROM users WHERE UUID='$uuid'";
+        $result = mysqli_query($mysqli, $sql);
+    }
+    static function addUser($name, $email, $password, $role, $mysqli) {
+        $sql = "INSERT INTO users (UUID, name, email, password, role) VALUES (UUID(), '$name', '$email', '$password', '$role')";
+        $result = mysqli_query($mysqli, $sql);
+    }
+}
+class admin {
+    static function addEvent($title, $description, $start_date, $start_time, $end_date, $end_time, $mysqli) {
+        $sql = "INSERT INTO agenda (title, description, start_d, start_t, end_d, end_t, author) VALUES ('$title', '$description', '$start_date', '$start_time', '$end_date', '$end_time', '".$_SESSION['UUID']."')";
+        $result = mysqli_query($mysqli, $sql);
+        return mysqli_error($mysqli);
+    }
+    static function getRole($role_id, $mysqli) {
+        $sql="SELECT role_name FROM roles WHERE role_id='$role_id'";
+        $result = mysqli_query($mysqli, $sql);
+        $count = mysqli_num_rows($result);
+        $row = mysqli_fetch_assoc($result);
+        return $row['role_name'];
+    }
+    static function getPosts($mysqli) {
+        $sql="SELECT ID,title,user,date FROM posts";
+        $result = mysqli_query($mysqli, $sql);
+        $count = mysqli_num_rows($result);
+        $content = '
+        <table class="table">
+          <thead class="animated fadeInUpBig">
+            <tr>
+              <th>ID</th>
+              <td>Title</td>
+              <td>Author</td>
+              <td>Placed</td>
+              <td>Options</td>
+            </tr>
+          </thead>
+          <tfoot class="animated fadeInUpBig">
+            <tr>
+              <th>ID</th>
+              <td>Title</td>
+              <td>Author</td>
+              <td>Placed</td>
+              <td>Options</td>
+            </tr>
+          </tfoot>
+          <tbody>';
+        while($row = mysqli_fetch_assoc($result)) {
+            $content .= '
+                <tr class="animated fadeInUpBig">
+                    <th >'.$row["ID"].'</th >
+                    <td >'.$row["title"].'</td >
+                    <td >'.user::getName($row["user"], $mysqli).'</td >
+                    <td >'.$row["date"].'</td >
+                    <td ><div class="block" >
+                      <a class="button is-info" >Edit</a >
+                      ';
+            if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
+                $content .= '<a class="button is-danger" href="admin&p=manageposts&removepost=' . $row["ID"] . '">Remove</a >';
+            }
+            $content .= '</div >
+                    </td >
+                </tr >';
+        }
+        $content .= '</tbody>
+            </table>        <script src="js/modal.js"></script>
+            ';
+        return $content;
+    }
+    static function addPost($mysqli) {
+        $content = '
+        <script src="../libs/ckeditor/ckeditor.js"></script>
+                            <form method="post" target="">
+                                            <div class="field">
+                                        <label class="label">Title</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="text" placeholder="Title" value="" id="title" name="title">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-user-o"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Post</label>
+             <p class="control has-icons-left has-icons-right">
+            <textarea name="text" id="text" rows="10" cols="80">
+            </textarea>
+                                        </p>
+                                    </div>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace("text");
+            </script>
+            <input type="submit" class="button is-success" value="Post" id="addpost" name="addpost">
+        </form>
+        
+        ';
         return $content;
     }
     static function home($mysqli) {
         return 'nog niks';
     }
+    static function removePost($id, $mysqli) {
+        $sql = "DELETE FROM posts WHERE ID='$id'";
+        $result = mysqli_query($mysqli, $sql);
+    }
+    static function removeEvent($id, $mysqli) {
+        $sql = "DELETE FROM agenda WHERE ID='$id'";
+        $result = mysqli_query($mysqli, $sql);
+    }
     static function getHeader($page)
     {
         switch ($page) {
+            case 'agenda':
+                return '
+                <div class="hero">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Agenda
+                            </h1>
+                            <div class="block">
+                            <p>
+                                <a class="button  modal-button" data-target="#addevent">Add event</a>
+                            </p>
+                        </div>
+                    <div id="addevent" class="modal">
+                        <div class="modal-background">
+                    
+                        </div>
+                        <div class="modal-content">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">Add event</p>
+                            </header>
+                            <form method="post" target="">
+                                <div class="modal-card-body">
+                                    <div class="field">
+                                        <label class="label">Title</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="text" placeholder="Title" value="" id="title" name="title">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-user-o"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Description</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="text" placeholder="Description" value="" id="description" name="description">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Start</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="date" placeholder="01-01-2000" value="" id="start-date" name="start-date">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </p>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="time" placeholder="12:00" value="" id="start-time" name="start-time">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-clock-o"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">End</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="date" placeholder="01-01-2000" value="" id="end-date" name="end-date">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </p>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="time" placeholder="12:00" value="" id="end-time" name="end-time">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-clock-o"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <footer class="modal-card-foot">
+                                    <input type="submit" class="button is-success" value="Add" id="addevent" name="addevent">
+                                </footer>
+                            </form>
+                        </div>
+                        <button class="modal-close"></button>
+                    </div>
+                </div>
+                <hr>';
+                break;
             case 'users':
                 return '
                 <div class="hero">
@@ -347,26 +457,26 @@ class admin {
                 </div>
                 <hr>';
                 break;
-            case 'roles':
-                return '
-                <div class="hero">
-                    <div class="hero-body">
-                        <div class="container">
-                            <h1 class="title">
-                                Roles
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-                <hr>';
-                break;
             case 'addpost':
                 return '
                 <div class="hero">
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
-                                Add page
+                                Add Post
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <hr>';
+                break;
+            case 'manageposts':
+                return '
+                <div class="hero">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Manage Posts
                             </h1>
                         </div>
                     </div>
@@ -388,6 +498,122 @@ class admin {
                 break;
         }
     }
+    static function getCalender($mysqli) {
+        $sql="SELECT * FROM agenda";
+        $result = mysqli_query($mysqli, $sql);
+        $count = mysqli_num_rows($result);
+        $content = '
+        <table class="table">
+          <thead class="animated fadeInUpBig">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tfoot class="animated fadeInUpBig">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Options</th>
+            </tr>
+          </tfoot>
+          <tbody>';
+        while($row = mysqli_fetch_assoc($result)) {
+            $content .= '
+                <tr class="animated fadeInUpBig">
+                    <th >'.$row["ID"].'</th >
+                    <td >'.$row["title"].'</td >
+                    <td >'.$row["start_d"].' om '.$row["start_t"].'</td >
+                    <td >'.$row["end_d"].' om '.$row["end_t"].'</td >
+                    <td ><div class="block" >
+                      <a class="button is-info modal-button" data-target="#editevent'.$row["ID"].'">Edit</a >
+                      ';
+            if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
+                $content .= '<a class="button is-danger" href="admin&p=agenda&removeevent=' . $row["ID"] . '">Remove</a >';
+            }
+            $content .='
+                </td >
+            </tr >';
+            $content.= '
+                    <div id="editevent'.$row["ID"].'" class="modal">
+                        <div class="modal-background">
+                    
+                        </div>
+                        <div class="modal-content">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">Edit event</p>
+                            </header>
+                            <form method="post" target="">
+                                <div class="modal-card-body">
+                                    <div class="field">
+                                        <label class="label">Title</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="text" placeholder="Title" value="'.$row["title"].'" id="title" name="title">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-user-o"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Description</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="text" placeholder="Description" value="'.$row["description"].'" id="description" name="description">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Start</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="date" placeholder="01-01-2000" value="'.$row["start_d"].'" id="start-date" name="start-date">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </p>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="time" placeholder="12:00" value="'.$row["start_t"].'" id="start-time" name="start-time">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-clock-o"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">End</label>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="date" placeholder="01-01-2000" value="'.$row["end_d"].'" id="end-date" name="end-date">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </p>
+                                        <p class="control has-icons-left has-icons-right">
+                                            <input class="input" type="time" placeholder="12:00" value="'.$row["end_t"].'" id="end-time" name="end-time">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-clock-o"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <input type="hidden" name="id" id="id" value="'.$row["ID"].'">
+                                </div>
+                                <footer class="modal-card-foot">
+                                    <input type="submit" class="button is-success" value="Save" id="editevent" name="editevent">
+                                </footer>
+                            </form>
+                        </div>
+                                                <button class="modal-close"></button>
+
+                    </div >';
+        }
+        $content .= '</tbody>
+            </table>        <script src="js/modal.js"></script>
+            ';
+        return $content;
+    }
 }
 abstract class permissions {
     const ReachDashboard        = "reachDashboard";
@@ -400,25 +626,138 @@ abstract class permissions {
     const AddPost               = "addPost";
     const ManageCategories      = "manageCategories";
     static function hasPermission($role_id, $permission, $mysqli) {
-        $sql = "SELECT role_permissions FROM roles WHERE role_id='$role_id'";
-        $result = mysqli_query($mysqli, $sql);
-        $row = mysqli_fetch_assoc($result);
-        $permissions = $row['role_permissions'];
-        if(strpos($permissions,  'all,') !== false) {
+        if(strcmp($role_id, '5') == 0) {
             return true;
         }
-        if(empty($permissions)) {
+    }
+}
+class common {
+    function truncate_html($html, $length = 100, $ending = '...')
+    {
+        if (!is_string($html)) {
+            trigger_error('Function \'truncate_html\' expects argument 1 to be an string', E_USER_ERROR);
             return false;
         }
-        $exploded_permissions = explode(",", $permissions);
-        for($i = 0; $i < count($exploded_permissions); $i++) {
-            if(strcmp($exploded_permissions[i], $permission) == 0) {
-                return true;
-            }
-            if(strcmp($exploded_permissions[i], 'all') == 0) {
-                return true;
+
+        if (mb_strlen(strip_tags($html)) <= $length) {
+            return $html;
+        }
+        $total = mb_strlen($ending);
+        $open_tags = array();
+        $return = '';
+        $finished = false;
+        $final_segment = '';
+        $self_closing_elements = array(
+            'area',
+            'base',
+            'br',
+            'col',
+            'frame',
+            'hr',
+            'img',
+            'input',
+            'link',
+            'meta',
+            'param'
+        );
+        $inline_containers = array(
+            'a',
+            'b',
+            'abbr',
+            'cite',
+            'em',
+            'i',
+            'kbd',
+            'span',
+            'strong',
+            'sub',
+            'sup'
+        );
+        while (!$finished) {
+            if (preg_match('/^<(\w+)[^>]*>/', $html, $matches)) { // Does the remaining string start in an opening tag?
+                // If not self-closing, place tag in $open_tags array:
+                if (!in_array($matches[1], $self_closing_elements)) {
+                    $open_tags[] = $matches[1];
+                }
+                // Remove tag from $html:
+                $html = substr_replace($html, '', 0, strlen($matches[0]));
+                // Add tag to $return:
+                $return .= $matches[0];
+            } elseif (preg_match('/^<\/(\w+)>/', $html, $matches)) { // Does the remaining string start in an end tag?
+                // Remove matching opening tag from $open_tags array:
+                $key = array_search($matches[1], $open_tags);
+                if ($key !== false) {
+                    unset($open_tags[$key]);
+                }
+                // Remove tag from $html:
+                $html = substr_replace($html, '', 0, strlen($matches[0]));
+                // Add tag to $return:
+                $return .= $matches[0];
+            } else {
+                // Extract text up to next tag as $segment:
+                if (preg_match('/^([^<]+)(<\/?(\w+)[^>]*>)?/', $html, $matches)) {
+                    $segment = $matches[1];
+                    // Following code taken from https://trac.cakephp.org/browser/tags/1.2.1.8004/cake/libs/view/helpers/text.php?rev=8005.
+                    // Not 100% sure about it, but assume it deals with utf and html entities/multi-byte characters to get accureate string length.
+                    $segment_length = mb_strlen(preg_replace('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|&#x[0-9a-f]{1,6};/i', ' ', $segment));
+                    // Compare $segment_length + $total to $length:
+                    if ($segment_length + $total > $length) { // Truncate $segment and set as $final_segment:
+                        $remainder = $length - $total;
+                        $entities_length = 0;
+                        if (preg_match_all('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|&#x[0-9a-f]{1,6};/i', $segment, $entities, PREG_OFFSET_CAPTURE)) {
+                            foreach($entities[0] as $entity) {
+                                if ($entity[1] + 1 - $entities_length <= $remainder) {
+                                    $remainder--;
+                                    $entities_length += mb_strlen($entity[0]);
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+                        // Otherwise truncate $segment and set as $final_segment:
+                        $finished = true;
+                        $final_segment = mb_substr($segment, 0, $remainder + $entities_length);
+                    } else {
+                        // Add $segment to $return and increase $total:
+                        $return .= $segment;
+                        $total += $segment_length;
+                        // Remove $segment from $html:
+                        $html = substr_replace($html, '', 0, strlen($segment));
+                    }
+                } else {
+                    $finshed = true;
+                }
             }
         }
-        return false;
+        // Check for spaces in $final_segment:
+        if (strpos($final_segment, ' ') === false && preg_match('/<(\w+)[^>]*>$/', $return)) { // If none and $return ends in an opening tag: (we ignore $final_segment)
+            // Remove opening tag from end of $return:
+            $return = preg_replace('/<(\w+)[^>]*>$/', '', $return);
+            // Remove opening tag from $open_tags:
+            $key = array_search($matches[3], $open_tags);
+            if ($key !== false) {
+                unset($open_tags[$key]);
+            }
+        } else { // Otherwise, truncate $final_segment to last space and add to $return:
+            // $spacepos = strrpos($final_segment, ' ');
+            $return .= mb_substr($final_segment, 0, mb_strrpos($final_segment, ' '));
+        }
+        $return = trim($return);
+        $len = strlen($return);
+        $last_char = substr($return, $len - 1, 1);
+        if (!preg_match('/[a-zA-Z0-9]/', $last_char)) {
+            $return = substr_replace($return, '', $len - 1, 1);
+        }
+        // Add closing tags:
+        $closing_tags = array_reverse($open_tags);
+        $ending_added = false;
+        foreach($closing_tags as $tag) {
+            if (!in_array($tag, $inline_containers) && !$ending_added) {
+                $return .= $ending;
+                $ending_added = true;
+            }
+            $return .= '</' . $tag . '>';
+        }
+        return $return;
     }
 }

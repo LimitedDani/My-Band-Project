@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-06-07 11:30:06
+  from "D:\Github Projects\My-Band-Project\html\views\article.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5937d5ae124976_62995880',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '39bf04f35458a0b19eb9480b4086f2695b789afb' => 
+    array (
+      0 => 'D:\\Github Projects\\My-Band-Project\\html\\views\\article.tpl',
+      1 => 1496831387,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5937d5ae124976_62995880 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <section class="hero is-primary">
     <div class="hero-body">
         <div class="container">
@@ -14,20 +38,11 @@
     <div class="columns">
         <div class="column is-three-quarters">
             <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <p class="title">
-                            <h1 class="title">Newest articles</h1>
-                        </p>
-                        {foreach from=$result_list item=articles}
-                            <a href="article&id={$articles.ID}">
-                                <hr />
-                                <h1 class="title is-1">{$articles.title}</h1>
-                                <span>{$articles.article|strip_tags|strip|truncate:100}</span>
-                            </a>
-                        {/foreach}
-                    </div>
-                </div>
+                <hr />
+                <h1 class="title is-1"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</h1>
+                <span><?php echo $_smarty_tpl->tpl_vars['article']->value;?>
+</span>
             </div>
         </div>
         <div class="column">
@@ -44,4 +59,5 @@
         </div>
     </div>
 </div>
-</body>
+</body><?php }
+}

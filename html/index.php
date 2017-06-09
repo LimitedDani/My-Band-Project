@@ -15,9 +15,24 @@ switch ($action) {
         $templateParser->assign('result_list', $result_list);
         $templateParser->display('home.tpl');
         break;
+    case 'article':
+        require_once 'model/head.php';
+        require_once 'model/nav.php';
+        require_once 'model/article.php';
+        $templateParser->assign('title', $title);
+        $templateParser->assign('article', $article);
+        $templateParser->display('article.tpl');
+        break;
+    case 'agenda':
+        require_once 'model/head.php';
+        require_once 'model/nav.php';
+        require_once 'model/agenda.php';
+        $templateParser->assign('result_list', $result_list);
+        $templateParser->display('agenda.tpl');
+        break;
     case 'admin':
         if(isset($_SESSION['user'])) {
-            if(!permissions::hasPermission(admin::getRoleID($_SESSION['UUID'], $mysqli), permissions::ReachDashboard, $mysqli)) {
+            if(!permissions::hasPermission(user::getRoleID($_SESSION['UUID'], $mysqli), permissions::ReachDashboard, $mysqli)) {
                 session_unset();
                 session_destroy();
                 session_write_close();
@@ -32,13 +47,19 @@ switch ($action) {
                 if(!empty($_GET['p'])) {
                     switch($_GET['p']) {
                         case 'users':
-                            $content = admin::users($mysqli);
+                            $content = user::getAll($mysqli);
                             break;
                         case 'home':
                             $content = admin::home($mysqli);
                             break;
                         case 'addpost':
                             $content = admin::addPost($mysqli);
+                            break;
+                        case 'manageposts':
+                            $content = admin::getPosts($mysqli);
+                            break;
+                        case 'agenda':
+                            $content = admin::getCalender($mysqli);
                             break;
                         default:
                             $content = admin::home($mysqli);

@@ -10,23 +10,18 @@
 <body>
 <nav class="nav">
     <div class="nav-left">
-        <a class="nav-item is-brand" href="#">
+        <a class="nav-item is-brand" href="home">
             <span class="title is-3 is-bold"><?php echo $title; ?></span>
         </a>
     </div>
 
     <div class="nav-center">
-        <a class="nav-item" href="#">
+        <a class="nav-item" href="home">
             Home
         </a>
-        <a class="nav-item" href="#">
+        <a class="nav-item" href="agenda">
             Agenda
         </a>
-        <?php if($isloggedin) {?>
-            <a class="nav-item" href="#">
-                Ask a question
-            </a>
-        <?php }?>
     </div>
 
     <label class="nav-toggle" for="nav-toggle-state">

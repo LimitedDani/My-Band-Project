@@ -14,20 +14,9 @@
     <div class="columns">
         <div class="column is-three-quarters">
             <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <p class="title">
-                            <h1 class="title">Newest articles</h1>
-                        </p>
-                        {foreach from=$result_list item=articles}
-                            <a href="article&id={$articles.ID}">
-                                <hr />
-                                <h1 class="title is-1">{$articles.title}</h1>
-                                <span>{$articles.article|strip_tags|strip|truncate:100}</span>
-                            </a>
-                        {/foreach}
-                    </div>
-                </div>
+                <hr />
+                <h1 class="title is-1">{$title}</h1>
+                <span>{$article}</span>
             </div>
         </div>
         <div class="column">
