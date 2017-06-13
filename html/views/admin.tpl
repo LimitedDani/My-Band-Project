@@ -6,6 +6,10 @@
     <label>Password</label>
     <input type="password" id="password" name="password" />
     <input type="hidden" value="admin" name="page" id="page" disabled>
+    <label>Recaptcha</label>
+    <div class="g-recaptcha" data-sitekey="6Lcmth0UAAAAAHnDmpanMym-TT1sDikDMcicyGQk"></div>
     <button id="submit" name="submit">Login</button>
 </form>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </body>
