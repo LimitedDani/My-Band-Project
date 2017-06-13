@@ -10,16 +10,16 @@
 <body>
 <nav class="nav">
     <div class="nav-left">
-        <a class="nav-item is-brand" href="home">
+        <a class="nav-item is-brand" href="/myband/home">
             <span class="title is-3 is-bold"><?php echo $title; ?></span>
         </a>
     </div>
 
     <div class="nav-center">
-        <a class="nav-item" href="home">
+        <a class="nav-item" href="/myband/home">
             Home
         </a>
-        <a class="nav-item" href="agenda">
+        <a class="nav-item" href="/myband/agenda">
             Agenda
         </a>
     </div>

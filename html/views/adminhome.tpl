@@ -29,17 +29,17 @@
                 </p>
             </li>
             <li class="panel-item">
-                <a class="panel-title" href="/admin&p=home">
+                <a class="panel-title" href="/myband/admin&p=home">
                     <span class="icon is-small"><i class="fa fa-dashboard"></i></span> Dashboard
                 </a>
             </li>
             <li class="panel-item">
-                <a class="panel-title" href="/admin&p=users">
+                <a class="panel-title" href="/myband/admin&p=users">
                     <span class="icon is-small"><i class="fa fa-user"></i></span> Users
                 </a>
             </li>
             <li class="panel-item">
-                <a class="panel-title" href="/admin&p=agenda">
+                <a class="panel-title" href="/myband/admin&p=agenda">
                     <span class="icon is-small"><i class="fa fa-calendar"></i></span> Agenda
                 </a>
             </li>
@@ -50,10 +50,10 @@
                 </a>
                 <ul class="sub-panel">
                     <li class="panel-item">
-                        <a class="panel-title" href="/admin&p=manageposts">All Post</a>
+                        <a class="panel-title" href="/myband/admin&p=manageposts">All Post</a>
                     </li>
                     <li class="panel-item">
-                        <a class="panel-title" href="/admin&p=addpost">New Post</a>
+                        <a class="panel-title" href="/myband/admin&p=addpost">New Post</a>
                     </li>
                     <li class="panel-item">
                         <a class="panel-title">Categories</a>

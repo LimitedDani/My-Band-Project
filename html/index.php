@@ -12,6 +12,9 @@ switch ($action) {
         require_once 'model/head.php';
         require_once 'model/nav.php';
         require_once 'model/home.php';
+        $templateParser->assign('pageid', $pageid);
+        $templateParser->assign('isnext', $isnext);
+        $templateParser->assign('page', $_GET['p']);
         $templateParser->assign('result_list', $result_list);
         $templateParser->display('home.tpl');
         break;
@@ -19,7 +22,9 @@ switch ($action) {
         require_once 'model/head.php';
         require_once 'model/nav.php';
         require_once 'model/article.php';
+        $templateParser->assign('comments', $comments);
         $templateParser->assign('title', $title);
+        $templateParser->assign('id', $id);
         $templateParser->assign('article', $article);
         $templateParser->display('article.tpl');
         break;

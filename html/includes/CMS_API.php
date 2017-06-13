@@ -80,7 +80,7 @@ class user {
                       <a class="button is-info modal-button" data-target="#edituser'.$row["UUID"].'">Edit</a >
                       ';
             if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
-                $content .= '<a class="button is-danger" href="admin&p=users&removeuser=' . $row["UUID"] . '">Remove</a >';
+                $content .= '<a class="button is-danger" href="/myband/admin&p=users&removeuser=' . $row["UUID"] . '">Remove</a >';
             }
             $content .='
                 </td >
@@ -221,7 +221,7 @@ class admin {
                       <a class="button is-info" >Edit</a >
                       ';
             if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
-                $content .= '<a class="button is-danger" href="admin&p=manageposts&removepost=' . $row["ID"] . '">Remove</a >';
+                $content .= '<a class="button is-danger" href="/myband/admin&p=manageposts&removepost=' . $row["ID"] . '">Remove</a >';
             }
             $content .= '</div >
                     </td >
@@ -234,7 +234,7 @@ class admin {
     }
     static function addPost($mysqli) {
         $content = '
-        <script src="../libs/ckeditor/ckeditor.js"></script>
+        <script src="./libs/ckeditor/ckeditor.js"></script>
                             <form method="post" target="">
                                             <div class="field">
                                         <label class="label">Title</label>
@@ -534,7 +534,7 @@ class admin {
                       <a class="button is-info modal-button" data-target="#editevent'.$row["ID"].'">Edit</a >
                       ';
             if(strcmp($_SESSION['UUID'], $row['UUID']) != 0) {
-                $content .= '<a class="button is-danger" href="admin&p=agenda&removeevent=' . $row["ID"] . '">Remove</a >';
+                $content .= '<a class="button is-danger" href="/myband/admin&p=agenda&removeevent=' . $row["ID"] . '">Remove</a >';
             }
             $content .='
                 </td >
