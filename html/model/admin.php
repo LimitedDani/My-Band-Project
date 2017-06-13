@@ -6,6 +6,7 @@
  * Time: 16:42
  */
 $redirect = false;
+session_regenerate_id();
 if(isset($_REQUEST['adduser'])) {
     $name = $_REQUEST['name'];
     $email = $_REQUEST['email'];

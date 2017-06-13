@@ -5,6 +5,7 @@
  * Date: 29-5-2017
  * Time: 09:39
  */
+session_name("ja");
 ob_start();
 session_start();
 require 'connectdb.php';
