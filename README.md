@@ -37,6 +37,4 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
 | B1-K2-W2 GebruikersTestrapport | TODO |  [test] |
-| usertest video                 | TODO |  [usertest_youtube] |
 | B1-K3-W1 Optimalisatieplan     | TODO |  [op] |
-| Statistieken                   | TODO |  [mystat]|
