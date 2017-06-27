@@ -31,7 +31,7 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | b1-k1-w3 ERD               |  DONE |  [ERD.svg](./docs/ERD.svg)  |
 | b1-k1-w4 Ontwikkelomgeving |  DONE |  [Ontwikkelomgeving](./docs/Ontwikkelomgeving.pdf)|
 | Link naar de live omgeving |  TODO |	[https://school.daniquedejong.nl/myband](http://school.daniquedejong.nl/myband) |
-| Implementatieplan          |  TODO |  [Implementatieplan] |
+| Implementatieplan          |  TODO |  [Implementatieplan](./docs/implementatieplan.md) |
 
 #### Milestones Fase 3
 | Milestone  | Status | Link |
