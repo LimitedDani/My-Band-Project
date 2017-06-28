@@ -23,6 +23,7 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | b1-k1-w2 FLowChart	          | DONE   |  [Flowchart.svg](./docs/Flowchart.svg)                |	SVG exported by Draw.io           |
 | b1-k1-w2 prototype	          | DONE   |  [prototype](http://school.daniquedejong.nl/myband/prototype/school.daniquedejong.nl/myband/)                                                     |	axShare	Axshare link              |
 | b1-k1-w2 Wireframes	          | DONE   |  [wireframes](./docs/wireframes)            |	Wireframes Mobile en desktop          |
+| b1-k2-w2 Mockup               | DONE   | [mockup](https://xd.adobe.com/view/f822c660-9b5c-4139-beab-dc9204da970c/) | Mockup |
 
 #### Milestones Fase 2
 | Milestone  | Status | Link |
