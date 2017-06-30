@@ -38,4 +38,4 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
 | B1-K2-W2 GebruikersTestrapport | TODO |  [Usertest Rapport](./docs/Usertestrapport.pdf) |
-| B1-K3-W1 Optimalisatieplan     | TODO |  [op] |
+| B1-K3-W1 Optimalisatieplan     | TODO |  [Optimalisatieplan](./docs/Optimalisatieplan.md) |
