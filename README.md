@@ -1,5 +1,5 @@
 ## JA Community
-www.jacommunity.nl is een website van Daní de Jong waar gebruikers kunnen vragen kunnen stellen over Java en Android bedoeld voor Java en Android developers.
+http://school.daniquedejong.nl/myband is een website van Daní de Jong waar gebruikers kunnen vragen kunnen stellen over Java en Android bedoeld voor Java en Android developers.
 De website is enigszins te vergelijken met stackoverflow.com maar toch anders omdat het er wat strakker uitziet.
 
 ### Uniek aan dit concept is: 
@@ -31,11 +31,11 @@ De website is enigszins te vergelijken met stackoverflow.com maar toch anders om
 | b1-k1-w3 Technisch Ontwerp |  DONE |  [Technisch Ontwerp](./docs/TechnischOntwerp.pdf) |
 | b1-k1-w3 ERD               |  DONE |  [ERD.svg](./docs/ERD.svg)  |
 | b1-k1-w4 Ontwikkelomgeving |  DONE |  [Ontwikkelomgeving](./docs/Ontwikkelomgeving.pdf)|
-| Link naar de live omgeving |  TODO |	[https://school.daniquedejong.nl/myband](http://school.daniquedejong.nl/myband) |
-| Implementatieplan          |  TODO |  [Implementatieplan](./docs/implementatieplan.md) |
+| Link naar de live omgeving |  DONE |	[https://school.daniquedejong.nl/myband](http://school.daniquedejong.nl/myband) |
+| Implementatieplan          |  DONE |  [Implementatieplan](./docs/implementatieplan.md) |
 
 #### Milestones Fase 3
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
-| B1-K2-W2 GebruikersTestrapport | TODO |  [Usertest Rapport](./docs/Usertestrapport.pdf) |
-| B1-K3-W1 Optimalisatieplan     | TODO |  [Optimalisatieplan](./docs/Optimalisatieplan.md) |
+| B1-K2-W2 GebruikersTestrapport | DONE |  [Usertest Rapport](./docs/Usertestrapport.pdf) |
+| B1-K3-W1 Optimalisatieplan     | DONE |  [Optimalisatieplan](./docs/optimalisatieplan.md) |
