@@ -3,8 +3,7 @@ http://school.daniquedejong.nl/myband is een website van Daní de Jong waar gebr
 De website is enigszins te vergelijken met stackoverflow.com maar toch anders omdat het er wat strakker uitziet.
 
 ### Uniek aan dit concept is: 
- * eerste u.s.p. (vul hier in, waarin jouw site anders is dan alle anderen)
- * tweede u.s.p. (vul hier in, waar jouw site door gaat opvallen, wat zal iedereen onthouden van jouw site?)
+* alles :)
 
 
 # My-Band-Project
