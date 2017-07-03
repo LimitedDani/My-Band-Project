@@ -7,7 +7,7 @@
  */
 $host="localhost";
 $username="daniq_nl_danique";
-$password="Sierra_123";
+$password="-";
 $db_name="daniquedejong_nl_danique";
 $table_prefix="myband_";
 
